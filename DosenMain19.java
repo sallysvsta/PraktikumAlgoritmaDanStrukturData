@@ -12,7 +12,7 @@ public class DosenMain19 {
         System.out.println("Informasi Dosen 1:");
         dosen1.tampilInformasi();
         dosen1.setStatusAktif(false);
-        System.out.println("Masa Kerja: " + dosen1.hitungMasaKerja(2023) + " tahun");
+        System.out.println("Masa Kerja: " + dosen1.hitungMasaKerja(2025) + " tahun");
         dosen1.ubahKeahlian("Sistem Informasi Bisnis");
         System.out.println();
 
@@ -21,7 +21,7 @@ public class DosenMain19 {
         System.out.println("Informasi Dosen 2:");
         dosen2.tampilInformasi();
         dosen2.setStatusAktif(true);
-        System.out.println("Masa Kerja: " + dosen2.hitungMasaKerja(2023) + " tahun");
+        System.out.println("Masa Kerja: " + dosen2.hitungMasaKerja(2025) + " tahun");
         dosen2.ubahKeahlian("Teknik Elektro");
     }
 }
