@@ -1,27 +1,70 @@
-package Praktikum02;
+package Praktikum05;
+import java.util.Scanner;
 public class DosenMain19 {
     public static void main(String[] args) {
-        
-        Dosen19 dosen1 = new Dosen19();
-        dosen1.idDosen = "D001";
-        dosen1.nama = "Vivin Ayu Lestari, S.Pd., M.Kom";
-        dosen1.statusAktif = true;
-        dosen1.tahunBergabung = 2005;
-        dosen1.bidangKeahlian = "Teknik Informatika";
+        Scanner sc = new Scanner(System.in);
+        DataDosen19 list = new DataDosen19();
+        int pilih;
 
-        System.out.println("Informasi Dosen 1:");
-        dosen1.tampilInformasi();
-        dosen1.setStatusAktif(false);
-        System.out.println("Masa Kerja: " + dosen1.hitungMasaKerja(2025) + " tahun");
-        dosen1.ubahKeahlian("Sistem Informasi Bisnis");
-        System.out.println();
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Tambah Data Dosen");
+            System.out.println("2. Tampil Data Dosen");
+            System.out.println("3. Sorting ASC (Usia Muda ke Tua)");
+            System.out.println("4. Sorting DSC (Usia Tua ke Muda)");
+            System.out.println("5. Sorting DSC pakai Insertion Sort");
+            System.out.println("6. Exit");
+            System.out.print("Pilih: ");
+            pilih = sc.nextInt();
+            sc.nextLine(); 
 
-        Dosen19 dosen2 = new Dosen19("D002", "Adevian Fairuz Pratama, S.ST, M.Eng", true, 2010, "Matematika");
+            switch(pilih){
+                case 1:
+                    System.out.print("Kode: ");
+                    String kode = sc.nextLine();
+                    System.out.print("Nama: ");
+                    String nama = sc.nextLine();
+                    System.out.print("Jenis Kelamin (L/P): ");
+                    char jk = sc.next().charAt(0);
+                    boolean jenisKelamin = (jk == 'L' || jk == 'l');
+                    System.out.print("Usia: ");
+                    int usia = sc.nextInt();
 
-        System.out.println("Informasi Dosen 2:");
-        dosen2.tampilInformasi();
-        dosen2.setStatusAktif(true);
-        System.out.println("Masa Kerja: " + dosen2.hitungMasaKerja(2025) + " tahun");
-        dosen2.ubahKeahlian("Teknik Elektro");
+                    Dosen19 dsn = new Dosen19(kode, nama, jenisKelamin, usia);
+                    list.tambah(dsn);
+                    break;
+
+                case 2:
+                    System.out.println("Data Dosen:");
+                    list.tampil();
+                    break;
+
+                case 3:
+                    list.SortingASC();
+                    System.out.println("Data setelah Bubble Sort ASC:");
+                    list.tampil();
+                    break;
+
+                case 4:
+                    list.sortingDSC();
+                    System.out.println("Data setelah Selection Sort DSC:");
+                    list.tampil();
+                    break;
+
+                case 5:
+                    list.insertionSort();
+                    System.out.println("Data setelah Insertion Sort DSC:");
+                    list.tampil();
+                    break;
+                    
+                case 6:
+                    System.out.println("Keluar program...");
+                    break;
+
+                default:
+                    System.out.println("Pilihan tidak valid!");
+            }
+
+        } while(pilih != 6);
     }
 }

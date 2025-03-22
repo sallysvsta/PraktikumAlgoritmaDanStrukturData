@@ -1,27 +1,21 @@
-package Praktikum03;
+package Praktikum05;
 public class Dosen19 {
-        String kode;
-        String nama;
-        boolean jenisKelamin; 
-        int usia;
+    String kode;
+    String nama;
+    boolean jenisKelamin; 
+    int usia;
 
-        public Dosen19() {
-        }
-    
-        public Dosen19(String kode, String nama, boolean jenisKelamin, int usia) {
-            this.kode = kode;
-            this.nama = nama;
-            this.jenisKelamin = jenisKelamin;
-            this.usia = usia;
-        }
-
-        void tampilkanData() {
-            System.out.println("Kode            : " + this.kode);
-            System.out.println("Nama            : " + this.nama);
-            System.out.println("Jenis Kelamin   : " + (this.jenisKelamin ? "Pria" : "Wanita"));
-            System.out.println("Usia            : " + this.usia);
-        }
+    Dosen19(String kd, String name, boolean jk, int age){
+        kode = kd;
+        nama = name;
+        jenisKelamin = jk;
+        usia = age;
     }
 
-    
-    
+    void tampil(){
+        System.out.println("Kode: " + kode);
+        System.out.println("Nama: " + nama);
+        System.out.println("Jenis Kelamin: " + (jenisKelamin ? "Laki-laki" : "Perempuan"));
+        System.out.println("Usia: " + usia);
+    }
+}
