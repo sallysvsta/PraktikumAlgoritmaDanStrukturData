@@ -1,34 +1,43 @@
-package Praktikum03;
+package Praktikum05;
 import java.util.Scanner;
 public class MahasiswaDemo19 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Mahasiswa19[] arrayOfMahasiswa = new Mahasiswa19[3];
-        String dummy;
-    
-        for(int i=0; i < 3; i++) {
-            arrayOfMahasiswa[i] = new Mahasiswa19();
-    
-            System.out.println("Masukkan Data Mahasiswa ke-" + (i + 1));
-            System.out.print("NIM   : ");
-            arrayOfMahasiswa[i].nim = sc.nextLine();
-            System.out.print("Nama  : ");
-            arrayOfMahasiswa[i].nama = sc.nextLine();
-            System.out.print("Kelas : ");
-            arrayOfMahasiswa[i].kelas = sc.nextLine();
-            System.out.print("IPK   : ");
-            dummy = sc.nextLine();
-            arrayOfMahasiswa[i].ipk = Float.parseFloat(dummy);
-            System.out.println("-----------------------------");
-        }
+        MahasiswaBerprestasi19 list = new MahasiswaBerprestasi19();
 
-        for(int i=0; i < 3; i++) {
-            System.out.println("Data Mahasiswa ke-" + (i + 1));
-            System.out.println("NIM     : " + arrayOfMahasiswa[i].nim);
-            System.out.println("Nama    : " + arrayOfMahasiswa[i].nama);
-            System.out.println("Kelas   : " + arrayOfMahasiswa[i].kelas);
-            System.out.println("IPK     : " + arrayOfMahasiswa[i].ipk);
-            System.out.println("--------------------------------------");
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlah = sc.nextInt();
+        sc.nextLine();
+
+        for (int i = 0; i < jumlah; i++) {
+            System.out.println("Masukkan Data Mahasiswa ke-" + (i + 1));
+            System.out.print("NIM: ");
+            String nim = sc.nextLine();
+            System.out.print("Nama: ");
+            String nama = sc.nextLine();
+            System.out.print("Kelas: ");
+            String kelas = sc.nextLine();
+            System.out.print("IPK: ");
+            double ipk = sc.nextDouble();
+            sc.nextLine();
+
+            Mahasiswa19 m = new Mahasiswa19(nim, nama, kelas, ipk);
+            list.tambah(m);
+            System.out.println("---------------------------------");
         }
+        System.out.println("Data mahasiswa sebelum sorting : ");
+        list.tampil();
+
+        System.out.println("Data Mahasiswa setelah sorting berdasarkan IPK (DESC) : ");
+        list.bubbleSort();
+        list.tampil();
+
+        System.out.println("Data yang sudah terurut menggunakan SELECTION SORT (ASC) : ");
+        list.SelectionSort();
+        list.tampil();
+
+        System.out.println("Data yang sudah terurut menggunakan INSERTION SORT (ASC) : ");
+        list.insertionSort();
+        list.tampil();;
     }
 }
