@@ -1,4 +1,4 @@
-package Praktikum05;
+package Praktikum06;
 import java.util.Scanner;
 public class DosenMain19 {
     public static void main(String[] args) {
@@ -13,7 +13,10 @@ public class DosenMain19 {
             System.out.println("3. Sorting ASC (Usia Muda ke Tua)");
             System.out.println("4. Sorting DSC (Usia Tua ke Muda)");
             System.out.println("5. Sorting DSC pakai Insertion Sort");
-            System.out.println("6. Exit");
+            System.out.println("6. Pencarian Data Berdasarkan Nama (Sequential Search)");
+            System.out.println("7. Pencarian Data Berdasarkan Usia (Binary Search)");
+            System.out.println("8. Exit");
+
             System.out.print("Pilih: ");
             pilih = sc.nextInt();
             sc.nextLine(); 
@@ -58,13 +61,25 @@ public class DosenMain19 {
                     break;
                     
                 case 6:
-                    System.out.println("Keluar program...");
+                    System.out.print("Masukkan nama dosen yang dicari: ");
+                    String cariNama = sc.nextLine();
+                    list.pencarianDataSequential(cariNama);
+                    break;
+                
+                case 7:
+                    System.out.print("Masukkan usia dosen yang dicari: ");
+                    int cariUsia = sc.nextInt();
+                    list.pencarianDataBinary(cariUsia);
                     break;
 
+                case 8:
+                    System.out.println("Keluar program...");
+                    break;
+                
                 default:
                     System.out.println("Pilihan tidak valid!");
             }
 
-        } while(pilih != 6);
+        } while(pilih != 8);
     }
 }

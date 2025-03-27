@@ -1,4 +1,4 @@
-package Praktikum05;
+package Praktikum06;
 public class Dosen19 {
     String kode;
     String nama;
