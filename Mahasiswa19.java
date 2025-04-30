@@ -1,23 +1,17 @@
-package Praktikum06;
+package Praktikum09;
 public class Mahasiswa19 {
     String nim;
     String nama;
     String kelas;
-    double ipk;
+    int nilai;
 
-    Mahasiswa19(){
-    }
-
-    Mahasiswa19(String nm, String name, String kls, double ip) {
-        nim = nm;
-        nama = name;
-        ipk = ip;
-        kelas = kls;
-    }
-    void tampilInformasi() {
-        System.out.println("Nama: " + nama);
-        System.out.println("NIM: " + nim);
-        System.out.println("Kelas: " + kelas);
-        System.out.println("IPK: " + ipk);
-    }
+Mahasiswa19(String nama, String nim, String kelas){
+    this.nama = nama;
+    this.nim = nim;
+    this.kelas = kelas;
+    nilai = -1;
+}
+void tugasDinilai(int nilai) {
+    this.nilai = nilai;
+}
 }

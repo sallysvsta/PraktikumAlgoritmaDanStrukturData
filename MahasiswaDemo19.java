@@ -1,38 +1,71 @@
-package Praktikum06;
+package Praktikum09;
 import java.util.Scanner;
 public class MahasiswaDemo19 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Masukkan jumlah mahasiswa: ");
-        int jumMhs = sc.nextInt();
-        MahasiswaBerprestasi19 list = new MahasiswaBerprestasi19(jumMhs);
-
-        for (int i = 0; i < jumMhs; i++) {
-            System.out.println("Masukkan Data Mahasiswa ke-" + (i + 1));
-            System.out.print("NIM: ");
-            String nim = sc.nextLine();
-            System.out.print("Nama: ");
-            String nama = sc.nextLine();
-            System.out.print("Kelas: ");
-            String kelas = sc.nextLine();
-            System.out.print("IPK: ");
-            String ip =  sc.nextLine();
-            double ipk = Double.parseDouble(ip);
-            System.out.println("---------------------------------");
-            list.tambah(new Mahasiswa19(nim, nama, kelas, ipk));
+    StackTugasMahasiswa19 stack = new StackTugasMahasiswa19(5);
+    Scanner scan = new Scanner(System.in);
+    
+    int pilih;
+    do {
+        System.out.println("\nMenu: ");
+        System.out.println("1. Mengumpulkan Tugas");
+        System.out.println("2. Menilai Tugas");
+        System.out.println("3. Melihat Tugas Teratas");
+        System.out.println("4. Melihat Daftar Tugas");
+        System.out.println("5. Melihat Tugas Terbawah");
+        System.out.println("6. Menghitung Tugas yang Dikumpulkan");
+        System.out.print("Pilih: ");
+        pilih = scan.nextInt();
+        scan.nextLine();
+        switch (pilih) {
+            case 1:
+                System.out.print("Nama: ");
+                String nama = scan.nextLine();
+                System.out.print("NIM: ");
+                String nim = scan.nextLine();
+                System.out.print("Kelas: ");
+                String kelas = scan.nextLine();
+                Mahasiswa19 mhs = new Mahasiswa19(nama, nim, kelas);
+                stack.push(mhs);
+                System.out.printf("Tugas %s berhasil dikumpulkan\n", mhs.nama);
+                break;
+            case 2:
+                Mahasiswa19 dinilai = stack.pop();
+                if (dinilai != null) {
+                    System.out.println("Menilai tugas dari " + dinilai.nama);
+                    System.out.print("Masukkan nilai (0-100): ");
+                    int nilai = scan.nextInt();
+                    dinilai.tugasDinilai(nilai);
+                    System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
+                    String biner = stack.konversiDesimalKeBiner(nilai);
+                    System.out.println("Nilai Biner Tugas: " + biner);
+                }
+                break;
+            case 3:
+                Mahasiswa19 lihat = stack.peek();
+                if (lihat != null) {
+                    System.out.println("Tugas terakhir dikumpulkan oleh " + lihat.nama);
+                }
+                break;
+            case  4:
+                System.out.println("Daftar semua tugas");
+                System.out.println("Nama\tNIM\tKelas");
+                stack.print();
+                break;
+            case 5:
+            if (!stack.isEmpty()) {
+                System.out.println("Tugas pertama dikumpulkan oleh " + stack.stack[0].nama);
+            } else {
+                System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan. ");
+            }
+            break;
+            case 6:
+                int jumlahTugas = stack.hitungTugas();
+                System.out.println("Jumlah tugas yang sudah dikumpulkan: " + jumlahTugas);
+                break;
+            default:
+                System.out.println("Pilihan tidak valid.");
         }
-            list.tampil();
-            System.out.println("---------------------------------");
-            System.out.println("Pencarian data");
-            System.out.println("----------------------------------");
-            System.out.println("Masukkan ipk mahasiswa yang dicari: ");
-            System.out.println("IPK: ");
-            double cari = sc.nextDouble();
-            System.out.println("Menggunakan binary search");
-            System.out.println("----------------------------------");
-            double posisi2 = list.findBinarySearch(cari, 0, jumMhs-1);
-            int pss2 = (int)posisi2;
-            list.tampilPosisi(cari, pss2);
-            list.tampilDataSearch(cari, pss2);
-    }
+    } while (pilih >= 1 && pilih <= 6);
+}
 }
