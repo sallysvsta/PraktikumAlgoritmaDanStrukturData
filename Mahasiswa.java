@@ -1,4 +1,4 @@
-package P2Jobsheet10;
+package TugasJobsheet10;
 public class Mahasiswa {
     String nim;
     String nama;
@@ -15,3 +15,4 @@ public class Mahasiswa {
         System.out.println(nim + " - " + nama + " - " + prodi + " - " + kelas);
     }
 }
+
