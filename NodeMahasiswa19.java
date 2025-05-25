@@ -1,4 +1,4 @@
-package Praktikum11;
+package TugasJobsheet11;
 public class NodeMahasiswa19 {
     Mahasiswa19 data;
     NodeMahasiswa19 next;
