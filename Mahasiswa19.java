@@ -1,15 +1,21 @@
-package TugasJobsheet11;
+package Praktikum11;
 public class Mahasiswa19 {
-    String nama;
     String nim;
-    String keperluan;
+    String nama;
+    String kelas;
+    double ipk;
 
-    Mahasiswa19(String nama, String nim, String keperluan) {
-        this.nama = nama;
-        this.nim = nim;
-        this.keperluan = keperluan;
+    public Mahasiswa19(){
     }
-    public String toString() {
-        return nama + " - " + nim + " - " + keperluan;
+
+     public Mahasiswa19(String nim, String nama, String kelas, double ipk) {
+        this.nim = nim;
+        this.nama = nama;
+        this.kelas = kelas;
+        this.ipk = ipk;
+    }
+    public void tampilInformasi() {
+        System.out.printf("%-10s %-10s %-5s %.2f\n", nama, nim, kelas, ipk);
     }
 }
+
