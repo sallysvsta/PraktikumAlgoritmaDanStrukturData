@@ -1,18 +1,15 @@
-package TugasJobsheet10;
-public class Mahasiswa {
-    String nim;
+package TugasJobsheet11;
+public class Mahasiswa19 {
     String nama;
-    String prodi;
-    String kelas;
+    String nim;
+    String keperluan;
 
-    public Mahasiswa(String nim, String nama, String prodi, String kelas) {
-        this.nim = nim;
+    Mahasiswa19(String nama, String nim, String keperluan) {
         this.nama = nama;
-        this.prodi = prodi;
-        this.kelas = kelas;
+        this.nim = nim;
+        this.keperluan = keperluan;
     }
-    public void tampilkanData() {
-        System.out.println(nim + " - " + nama + " - " + prodi + " - " + kelas);
+    public String toString() {
+        return nama + " - " + nim + " - " + keperluan;
     }
 }
-
