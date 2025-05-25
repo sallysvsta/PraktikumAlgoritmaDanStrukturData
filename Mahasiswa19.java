@@ -1,17 +1,21 @@
-package Praktikum09;
+package Praktikum11;
 public class Mahasiswa19 {
     String nim;
     String nama;
     String kelas;
-    int nilai;
+    double ipk;
 
-Mahasiswa19(String nama, String nim, String kelas){
-    this.nama = nama;
-    this.nim = nim;
-    this.kelas = kelas;
-    nilai = -1;
+    public Mahasiswa19(){
+    }
+
+     public Mahasiswa19(String nim, String nama, String kelas, double ipk) {
+        this.nim = nim;
+        this.nama = nama;
+        this.kelas = kelas;
+        this.ipk = ipk;
+    }
+    public void tampilInformasi() {
+        System.out.printf("%-10s %-10s %-5s %.2f\n", nama, nim, kelas, ipk);
+    }
 }
-void tugasDinilai(int nilai) {
-    this.nilai = nilai;
-}
-}
+
