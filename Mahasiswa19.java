@@ -9,7 +9,7 @@ public class Mahasiswa19 {
         this.nim = nim;
         this.keperluan = keperluan;
     }
-    public void tampilkanData() {
-        System.out.println(nama + " - " + nim + " - " + keperluan);
+    public String toString() {
+        return nama + " - " + nim + " - " + keperluan;
     }
 }
