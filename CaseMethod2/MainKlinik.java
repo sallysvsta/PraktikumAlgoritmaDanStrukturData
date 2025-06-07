@@ -1,10 +1,11 @@
 package CaseMethod2;
 import java.util.LinkedList;
 import java.util.Scanner;
+
 public class MainKlinik {
     public static void main(String[] args) {
         LinkedListPasien antrianPasien = new LinkedListPasien();
-        LinkedList<TransaksiLayanan> riwayatTransaksi = new LinkedList<>();
+        LinkedList <TransaksiLayanan> riwayatTransaksi = new LinkedList<>();
         Scanner input = new Scanner(System.in);
 
         while (true) {
@@ -21,7 +22,7 @@ public class MainKlinik {
 
             switch (menu) {
                 case 1:
-                    System.out.print("Nama Pasien: ");
+                    System.out.print("\nNama Pasien: ");
                     String nama = input.nextLine();
                     System.out.print("NIK: ");
                     String nik = input.nextLine();
@@ -29,20 +30,21 @@ public class MainKlinik {
                     String keluhan = input.nextLine();
                     Pasien pasienBaru = new Pasien(nama, nik, keluhan);
                     antrianPasien.tambahPasien(pasienBaru);
-                    System.out.println(">> Pasien masuk ke dalam antrian.");
+                    System.out.println(">> Pasien masuk ke dalam antrian.\n");
                     break;
 
                 case 2:
+                    System.out.println("\n-- Daftar Antrian Pasien --");
                     antrianPasien.tampilkanAntrian();
                     break;
 
                 case 3:
                     if (antrianPasien.isEmpty()) {
-                        System.out.println(">> Tidak ada pasien dalam antrian.");
+                        System.out.println(">> Tidak ada pasien dalam antrian.\n");
                         break;
                     }
                     Pasien pasienDilayani = antrianPasien.layaniPasien();
-                    System.out.println("Pasien " + pasienDilayani.nama + " dipanggil");
+                    System.out.println("\nPasien " + pasienDilayani.nama + " dipanggil");
                     System.out.print("Masukkan ID Dokter: ");
                     String idDokter = input.nextLine();
                     System.out.print("Masukkan Nama Dokter: ");
@@ -53,19 +55,23 @@ public class MainKlinik {
                     Dokter dokter = new Dokter(idDokter, namaDokter);
                     TransaksiLayanan transaksi = new TransaksiLayanan(pasienDilayani, dokter, durasi);
                     riwayatTransaksi.add(transaksi);
-                    System.out.println(">> Pasien telah dilayani, transaksi berhasil dicatat.");
+                    System.out.println(">> Pasien telah dilayani, transaksi berhasil dicatat.\n");
                     break;
 
                 case 4:
                     int sisa = antrianPasien.sisaAntrian();
-                    System.out.println(">> Sisa pasien dalam antrian: " + sisa);
+                    System.out.println(">> Sisa pasien dalam antrian: " + sisa + "\n");
                     break;
 
                 case 5:
-                    System.out.println("-- Riwayat Transaksi --");
-                    System.out.println("Daftar Transaksi:");
-                    for (TransaksiLayanan t : riwayatTransaksi) {
-                        t.tampilkanTransaksi();
+                    System.out.println("\n-- Riwayat Transaksi --");
+                    if (riwayatTransaksi.isEmpty()) {
+                        System.out.println(">> Belum ada transaksi.\n");
+                    } else {
+                        for (TransaksiLayanan t : riwayatTransaksi) {
+                            t.tampilkanTransaksi();
+                        }
+                        System.out.println();
                     }
                     break;
 
@@ -75,7 +81,7 @@ public class MainKlinik {
                     return;
 
                 default:
-                    System.out.println(">> Menu tidak tersedia.");
+                    System.out.println(">> Menu tidak tersedia.\n");
             }
         }
     }
