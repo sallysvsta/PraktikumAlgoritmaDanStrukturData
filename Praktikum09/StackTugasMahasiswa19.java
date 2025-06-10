@@ -72,4 +72,3 @@ public class StackTugasMahasiswa19 {
         return top + 1;
     }
 }
-

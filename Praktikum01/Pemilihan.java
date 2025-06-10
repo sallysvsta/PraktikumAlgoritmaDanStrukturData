@@ -1,7 +1,6 @@
 package Praktikum01;
 import java.util.Scanner;
 public class Pemilihan {
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 

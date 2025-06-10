@@ -18,4 +18,3 @@ public class Mahasiswa19 {
         System.out.printf("%-10s %-10s %-5s %.2f\n", nama, nim, kelas, ipk);
     }
 }
-

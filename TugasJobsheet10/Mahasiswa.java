@@ -15,4 +15,3 @@ public class Mahasiswa {
         System.out.println(nim + " - " + nama + " - " + prodi + " - " + kelas);
     }
 }
-

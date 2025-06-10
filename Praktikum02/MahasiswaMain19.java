@@ -20,4 +20,3 @@ public class MahasiswaMain19 {
         mhsSeli.tampilkanInformasi();
     }
 }
-

@@ -62,4 +62,3 @@ public class LayananKemahasiswaan19 {
         scanner.close();
     }
 }
-
